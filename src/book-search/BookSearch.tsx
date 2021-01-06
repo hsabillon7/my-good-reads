@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
+import BookList from "../components/BookList/BookList.js";
 
 
 const BookSearch = () => {
@@ -57,10 +58,15 @@ const BookSearch = () => {
                             )}
 
                         </div>
+                        <BookList allAvailableBooks={allAvailableBooks} />
+                    </div>
+                    <div className="reading-list-container">
+                    <h2>My reading wishlist</h2>
+                    <div className="reading-list-content">
+                        <p>Selected book 1</p>
+                    </div>
                     </div>
                 </div>
-                {                <pre>{JSON.stringify(allAvailableBooks, null, 4)}</pre>
-                }
             </>
     );
 };
