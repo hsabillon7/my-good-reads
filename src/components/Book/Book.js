@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context as WishListContext } from "../../context/wishListContext";
 
 const Book = ({ book }) => {
+  const { addBook } = useContext(WishListContext);
+
   return (
     // <pre>{JSON.stringify(book)}</pre>
     <div className="card-content">
       <h2>{book.volumeInfo.title}</h2>
       <div className="card-body">
-        <img src={book.volumeInfo.imageLinks.thumbnail} />
+        <img
+          src={book.volumeInfo.imageLinks.thumbnail}
+          alt={book.volumeInfo.title}
+        />
         <p>
           {" "}
           Author:{" "}
@@ -20,7 +26,9 @@ const Book = ({ book }) => {
         <p>Published: {book.volumeInfo.publishedDate}</p>
         <p>{book.volumeInfo.description}</p>
       </div>
-      <a className="card-button">Add to wishlist</a>
+      <a className="card-button" onClick={() => addBook(book)}>
+        Add to wishlist
+      </a>
     </div>
   );
 };
