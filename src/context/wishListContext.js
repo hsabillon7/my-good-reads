@@ -9,7 +9,7 @@ const wishListReducer = (state, action) => {
           wishlist: [...state.wishlist, action.payload],
         };
       }
-      break;
+      return state;
     case "removeBook":
       return {
         ...state,
