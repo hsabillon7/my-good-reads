@@ -87,6 +87,12 @@ main {
     padding: 0;
     min-width: 36px;
   }
+
+  @media (max-width: $media-min-width) {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+  }
 }
 
 .reading-list-content {
@@ -118,7 +124,11 @@ form {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  // align-items: stretch;
+  align-items: stretch;
+
+  @media (max-width: $media-min-width) {
+    flex-direction: column-reverse;
+  }
 }
 
 .search-params {
@@ -126,11 +136,6 @@ form {
 }
 .sidebar {
   flex: 1;
-}
-
-.book-list-container {
-  // display: flex;
-  // align-items: center;
 }
 
 .card {
@@ -161,4 +166,18 @@ form {
   text-transform: uppercase;
   padding: 1rem 1.5rem;
   background-color: $orange;
+}
+.remove-book {
+  font-weight: bolder;
+  cursor: pointer;
+  color: $blue-accent;
+
+  &:hover {
+    color: $blue-dark;
+  }
+}
+
+.empty-wishlist {
+  font-size: 1.2rem;
+  text-align: center;
 }
