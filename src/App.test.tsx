@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('render empty list wishlist', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const wishlistElement = getByText(/Your wishlist is empty/i);
+  expect(wishlistElement).toBeInTheDocument();
 });
