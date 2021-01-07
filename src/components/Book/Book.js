@@ -10,7 +10,11 @@ const Book = ({ book }) => {
       <h2>{book.volumeInfo.title}</h2>
       <div className="card-body">
         <img
-          src={book.volumeInfo.imageLinks.thumbnail}
+          src={
+            book.volumeInfo.imageLinks
+              ? book.volumeInfo.imageLinks.thumbnail
+              : null
+          }
           alt={book.volumeInfo.title}
         />
         <p>
