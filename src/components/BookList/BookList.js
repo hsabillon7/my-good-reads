@@ -1,4 +1,5 @@
 import React from "react";
+import "./Book.scss";
 import Book from "../Book/Book.js";
 
 const BookList = ({ allAvailableBooks }) => {

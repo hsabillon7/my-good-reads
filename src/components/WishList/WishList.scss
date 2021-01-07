@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.remove-book {
+  font-weight: bolder;
+  cursor: pointer;
+  color: $blue-accent;
+
+  &:hover {
+    color: $blue-dark;
+  }
+}
+
+.empty-wishlist {
+  font-size: 1.2rem;
+  text-align: center;
+}

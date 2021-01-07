@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./WishList.scss";
 import { Context as WishListContext } from "../../context/wishListContext";
 
 const WishList = () => {
@@ -6,7 +7,10 @@ const WishList = () => {
 
   return (
     <>
-      <h2>My reading wishlist ({state.wishlist.length})</h2>
+      <h2>
+        My reading wishlist
+        {state.wishlist.length > 0 ? ` (${state.wishlist.length})` : null}
+      </h2>
       <div className="reading-list-content">
         {state.wishlist.length ? (
           state.wishlist.map((book) => (
