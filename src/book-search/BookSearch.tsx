@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
 import BookList from "../components/BookList/BookList.js";
+import WishList from "../components/WishList/WishList.js";
 
 
 const BookSearch = () => {
@@ -20,6 +21,7 @@ const BookSearch = () => {
         }
         getAllBooks();
     }, [bookTypeToSearch]);
+
     return (
             <>
                 <div className="book--container">
@@ -39,7 +41,12 @@ const BookSearch = () => {
                                     type="search"
                                     value={bookType}
                                     placeholder="Search for books to add to your reading list and press Enter"
-                                    onChange={e => updateBookType(e.target.value)}
+                                    onChange={e => {
+                                        updateBookType(e.target.value);
+                                        setTimeout(() => {
+                                            updateBookTypeToSearch(bookType);
+                                        }, 500);
+                                    }}
                                 />
                             </form>
                             {!bookType && (
@@ -61,10 +68,7 @@ const BookSearch = () => {
                         <BookList allAvailableBooks={allAvailableBooks} />
                     </div>
                     <div className="reading-list-container">
-                    <h2>My reading wishlist</h2>
-                    <div className="reading-list-content">
-                        <p>Selected book 1</p>
-                    </div>
+                        <WishList />
                     </div>
                 </div>
             </>
