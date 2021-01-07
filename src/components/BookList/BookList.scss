@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+.book-list-container {
+  @media (min-width: $media-min-width) {
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: center;
+  }
+}
+
+.card {
+  display: flex;
+  @media (min-width: $media-min-width) {
+    width: 32%;
+  }
+  background-color: $gray10;
+  margin: $spacing-xxs;
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $spacing-sm;
+  text-align: center;
+}
+
+.card-body {
+  padding: 1rem 0;
+  flex: 1 1 auto;
+}
+
+.card-content h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card-content span {
+  padding-right: $spacing-xxs;
+}
+
+.card-footer {
+  padding: 2rem;
+}
+
+.card-button {
+  color: $white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  background-color: $orange;
+}

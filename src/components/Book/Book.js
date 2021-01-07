@@ -7,8 +7,8 @@ const Book = ({ book }) => {
   return (
     // <pre>{JSON.stringify(book)}</pre>
     <div className="card-content">
-      <h2>{book.volumeInfo.title}</h2>
       <div className="card-body">
+        <h2>{book.volumeInfo.title}</h2>
         <img
           src={
             book.volumeInfo.imageLinks
@@ -18,21 +18,26 @@ const Book = ({ book }) => {
           alt={book.volumeInfo.title}
         />
         <p>
-          {" "}
-          Author:{" "}
+          <strong>Author:</strong>{" "}
           {book.volumeInfo.authors
             ? book.volumeInfo.authors.map((author, index) => (
                 <span key={index}>{author}</span>
               ))
             : "Unknown"}
         </p>
-        <p>Publisher: {book.volumeInfo.publisher}</p>
-        <p>Published: {book.volumeInfo.publishedDate}</p>
+        <p>
+          <strong>Publisher:</strong> {book.volumeInfo.publisher}
+        </p>
+        <p>
+          <strong>Published:</strong> {book.volumeInfo.publishedDate}
+        </p>
         <p>{book.volumeInfo.description}</p>
       </div>
-      <a className="card-button" onClick={() => addBook(book)}>
-        Add to wishlist
-      </a>
+      <div className="card-footer">
+        <a className="card-button" onClick={() => addBook(book)}>
+          Add to wishlist
+        </a>
+      </div>
     </div>
   );
 };
