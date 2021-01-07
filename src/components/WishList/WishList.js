@@ -8,29 +8,28 @@ const WishList = () => {
     <>
       <h2>My reading wishlist ({state.wishlist.length})</h2>
       <div className="reading-list-content">
-        {state.wishlist
-          ? state.wishlist.map((book) => (
-              <div key={book.id}>
-                <h3>
-                  {book.volumeInfo.title}{" "}
-                  <span
-                    className="remove-book"
-                    onClick={() => removeBook(book)}
-                  >
-                    X
-                  </span>
-                </h3>
-                <p>
-                  Author:{" "}
-                  {book.volumeInfo.authors
-                    ? book.volumeInfo.authors.map((author, index) => (
-                        <span key={index}>{author}</span>
-                      ))
-                    : "Unknown"}
-                </p>
-              </div>
-            ))
-          : null}
+        {state.wishlist.length ? (
+          state.wishlist.map((book) => (
+            <div key={book.id}>
+              <h3>
+                {book.volumeInfo.title}{" "}
+                <span className="remove-book" onClick={() => removeBook(book)}>
+                  X
+                </span>
+              </h3>
+              <p>
+                Author:{" "}
+                {book.volumeInfo.authors
+                  ? book.volumeInfo.authors.map((author, index) => (
+                      <span key={index}>{author}</span>
+                    ))
+                  : "Unknown"}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p className="empty-wishlist">Your wishlist is empty</p>
+        )}
       </div>
     </>
   );
