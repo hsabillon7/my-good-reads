@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ReactDOM from "react-dom";
 import WishList from "./WishList";
@@ -55,4 +55,23 @@ test("WishList shows value from provider", () => {
   expect(screen.getByText(/^Author:/)).toHaveTextContent(
     "Author: A book author"
   );
+});
+
+test("Wishlist calls removeBook function", () => {
+  const providerProps = {
+    value: {
+      state: {
+        wishlist: [
+          {
+            id: "123",
+            volumeInfo: { title: "A book title", authors: ["A book author"] },
+          },
+        ],
+      },
+      removeBook: jest.fn(),
+    },
+  };
+  customRender(<WishList />, { providerProps });
+  fireEvent.click(screen.getByText(/X/i));
+  expect(providerProps.value.removeBook).toHaveBeenCalledTimes(1);
 });
