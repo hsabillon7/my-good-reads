@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
 import BookList from "../components/BookList/BookList.js";
-import WishList from "../components/WishList/WishList.js";
+import WishList from "../components/WishList/WishList";
 
 
 const BookSearch = () => {

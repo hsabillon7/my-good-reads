@@ -3,7 +3,11 @@ import createDataContext from "./createDataContext";
 const wishListReducer = (state, action) => {
   switch (action.type) {
     case "addBook":
-      if (state.wishlist.indexOf(action.payload) === -1) {
+      if (
+        state.wishlist.findIndex(
+          (book) => book.book.id === action.payload.book.id
+        ) === -1
+      ) {
         return {
           ...state,
           wishlist: [...state.wishlist, action.payload],
@@ -14,7 +18,7 @@ const wishListReducer = (state, action) => {
       return {
         ...state,
         wishlist: state.wishlist.filter(
-          (book) => book.id !== action.payload.id
+          (book) => book.book.id !== action.payload.book.id
         ),
       };
     default:

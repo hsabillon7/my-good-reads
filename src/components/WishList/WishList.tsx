@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import "./WishList.scss";
 import { Context as WishListContext } from "../../context/wishListContext";
+import BookInterface from "../../interfaces/Book";
 
 const WishList = () => {
-  const { state, removeBook } = useContext(WishListContext);
+  const { state, removeBook } = useContext(WishListContext); 
+
+  console.log(state.wishlist);
+  
 
   return (
     <>
@@ -13,18 +17,18 @@ const WishList = () => {
       </h2>
       <div className="reading-list-content">
         {state.wishlist.length ? (
-          state.wishlist.map((book) => (
+          state.wishlist.map(({book}: BookInterface) => (
             <div key={book.id}>
               <h3>
                 {book.volumeInfo.title}{" "}
-                <span className="remove-book" onClick={() => removeBook(book)}>
+                <span className="remove-book" onClick={() => removeBook({book})}>
                   X
                 </span>
               </h3>
               <p>
                 Author:{" "}
                 {book.volumeInfo.authors
-                  ? book.volumeInfo.authors.map((author, index) => (
+                  ? book.volumeInfo.authors.map((author:string, index:number) => (
                       <span key={index}>{author}</span>
                     ))
                   : "Unknown"}

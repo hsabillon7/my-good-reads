@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Context as WishListContext } from "../../context/wishListContext";
+import BookInterface from "../../interfaces/Book";
 
-const Book = ({ book }) => {
+const Book = ({book}:BookInterface) => {
   const { addBook } = useContext(WishListContext);
-
+  
   return (
     // <pre>{JSON.stringify(book)}</pre>
     <div className="card-content">
@@ -11,16 +12,14 @@ const Book = ({ book }) => {
         <h2>{book.volumeInfo.title}</h2>
         <img
           src={
-            book.volumeInfo.imageLinks
-              ? book.volumeInfo.imageLinks.thumbnail
-              : null
+            book.volumeInfo.imageLinks.thumbnail
           }
           alt={book.volumeInfo.title}
         />
         <p>
           <strong>Author:</strong>{" "}
           {book.volumeInfo.authors
-            ? book.volumeInfo.authors.map((author, index) => (
+            ? book.volumeInfo.authors.map((author:string, index:number) => (
                 <span key={index}>{author}</span>
               ))
             : "Unknown"}
@@ -34,7 +33,7 @@ const Book = ({ book }) => {
         <p>{book.volumeInfo.description}</p>
       </div>
       <div className="card-footer">
-        <a className="card-button" onClick={() => addBook(book)}>
+        <a className="card-button" onClick={() => addBook({book})}>
           Add to wishlist
         </a>
       </div>
