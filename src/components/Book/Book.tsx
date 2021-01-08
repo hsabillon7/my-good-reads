@@ -12,7 +12,7 @@ const Book = ({book}:BookInterface) => {
         <h2>{book.volumeInfo.title}</h2>
         <img
           src={
-            book.volumeInfo.imageLinks.thumbnail
+            book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ""
           }
           alt={book.volumeInfo.title}
         />
