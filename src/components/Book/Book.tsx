@@ -8,7 +8,7 @@ const Book = ( book: BookInterface) => {
   return (
     <div className="card-content">
       <div className="card-body">
-        <h2>{book.volumeInfo.title}</h2>
+        <h2 className="card-title">{book.volumeInfo.title}</h2>
         <img
           src={
             book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : ""
@@ -29,12 +29,12 @@ const Book = ( book: BookInterface) => {
         <p>
           <strong>Published:</strong> {book.volumeInfo.publishedDate}
         </p>
-        <p>{book.volumeInfo.description}</p>
+        <p className="card-text">{book.volumeInfo.description}</p>
       </div>
       <div className="card-footer">
-        <a className="card-button" onClick={() => addBook(book)}>
+        <button className="card-button" onClick={() => addBook(book)}>
           Add to wishlist
-        </a>
+        </button>
       </div>
     </div>
   );

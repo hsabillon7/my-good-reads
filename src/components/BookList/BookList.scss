@@ -1,24 +1,32 @@
 @import "../../styles/variables";
 
 .book-list-container {
-  @media (min-width: $media-min-width) {
+  @media (min-width: 768px) {
     display: flex;
     flex-flow: row wrap;
-    // justify-content: center;
+    justify-content: center;
   }
 }
 
 .card {
   display: flex;
-  @media (min-width: $media-min-width) {
-    width: 32%;
-  }
-  background-color: $gray10;
+  width: 100%;
+  // background-color: $gray10;
   margin: $spacing-xxs;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 
-.card h2 {
-  text-align: center;
+@media only screen and (min-width: 1024px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card {
+    width: 32%;
+  }
 }
 
 .card-content {
@@ -34,9 +42,15 @@
   flex: 1 1 auto;
 }
 
-.card-content h2 {
+.card-title {
+  text-align: center;
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  line-height: 1.25;
 }
 
 .card-content span {
@@ -48,9 +62,23 @@
 }
 
 .card-button {
-  color: $white;
+  color: $orange;
+  background-color: $white;
   text-decoration: none;
   text-transform: uppercase;
   padding: 1rem 1.5rem;
-  background-color: $orange;
+  transition: 0.25s;
+  border-color: $orange;
+  border-width: 0.1rem;
+
+  &:hover,
+  &:focus {
+    border-color: $orange;
+    color: #fff;
+  }
+}
+
+.card-button:hover,
+.card-button:focus {
+  box-shadow: inset 12.5em 0 0 0 $orange;
 }
