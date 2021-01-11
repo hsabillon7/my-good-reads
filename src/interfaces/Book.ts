@@ -1,12 +1,5 @@
 interface BookInterface {
-  book: {
-    // accessInfo: {},
-  // etag: string,
   id: string,
-  // kind: string,
-  // saleInfo: {},
-  // searchInfo: {},
-  // selfLink: string,
   volumeInfo: {
     title: string,
     authors: [string],
@@ -17,7 +10,6 @@ interface BookInterface {
     publishedDate: string,
     description: string
   },
-  }
 }
 
 export default BookInterface;

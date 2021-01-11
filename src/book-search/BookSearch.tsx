@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
-import BookList from "../components/BookList/BookList.js";
+import BookList from "../components/BookList/BookList";
 import WishList from "../components/WishList/WishList";
-
 
 const BookSearch = () => {
     const [bookType, updateBookType] = useState("");
     const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
-    const [allAvailableBooks, setAllAvailableBooks] = useState([]);
+    const [allAvailableBooks, setAllAvailableBooks] = useState({ items: []});
     async function requestBooks() {
         if (bookTypeToSearch) {
             const allBooks = await getBooksByType(bookTypeToSearch);
@@ -65,7 +64,7 @@ const BookSearch = () => {
                             )}
 
                         </div>
-                        <BookList allAvailableBooks={allAvailableBooks} />
+                    <BookList {...allAvailableBooks} />
                     </div>
                     <div className="reading-list-container">
                         <WishList />

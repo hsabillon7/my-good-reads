@@ -5,10 +5,7 @@ import BookInterface from "../../interfaces/Book";
 
 const WishList = () => {
   const { state, removeBook } = useContext(WishListContext); 
-
-  console.log(state.wishlist);
   
-
   return (
     <>
       <h2>
@@ -17,11 +14,11 @@ const WishList = () => {
       </h2>
       <div className="reading-list-content">
         {state.wishlist.length ? (
-          state.wishlist.map(({book}: BookInterface) => (
+          state.wishlist.map((book: BookInterface) => (
             <div key={book.id}>
               <h3>
                 {book.volumeInfo.title}{" "}
-                <span className="remove-book" onClick={() => removeBook({book})}>
+                <span className="remove-book" onClick={() => removeBook(book)}>
                   X
                 </span>
               </h3>

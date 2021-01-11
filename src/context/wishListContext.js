@@ -4,9 +4,7 @@ const wishListReducer = (state, action) => {
   switch (action.type) {
     case "addBook":
       if (
-        state.wishlist.findIndex(
-          (book) => book.book.id === action.payload.book.id
-        ) === -1
+        state.wishlist.findIndex((book) => book.id === action.payload.id) === -1
       ) {
         return {
           ...state,
@@ -18,7 +16,7 @@ const wishListReducer = (state, action) => {
       return {
         ...state,
         wishlist: state.wishlist.filter(
-          (book) => book.book.id !== action.payload.book.id
+          (book) => book.id !== action.payload.id
         ),
       };
     default:
