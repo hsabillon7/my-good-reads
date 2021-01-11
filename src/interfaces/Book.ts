@@ -2,7 +2,7 @@ interface BookInterface {
   id: string,
   volumeInfo: {
     title: string,
-    authors: [string],
+    authors: string[],
     imageLinks: {
       thumbnail: string
     },
