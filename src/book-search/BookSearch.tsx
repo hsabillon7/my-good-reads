@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getBooksByType } from "./book-search.service";
 import BookList from "../components/BookList/BookList";
 import WishList from "../components/WishList/WishList";
+import BookListInterface from "../interfaces/BookList";
 
 const BookSearch = () => {
     const [bookType, updateBookType] = useState("");
     const [bookTypeToSearch, updateBookTypeToSearch] = useState("");
-    const [allAvailableBooks, setAllAvailableBooks] = useState({ items: []});
+    const [allAvailableBooks, setAllAvailableBooks] = useState<BookListInterface>({});
     async function requestBooks() {
         if (bookTypeToSearch) {
             const allBooks = await getBooksByType(bookTypeToSearch);

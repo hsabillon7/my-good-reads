@@ -1,13 +1,10 @@
 import React from "react";
 import "./BookList.scss";
 import Book from "../Book/Book";
+import BookListInterface from "../../interfaces/BookList";
 import BookInterface from "../../interfaces/Book";
 
-export interface allBooks {
-  items?: BookInterface[];
-}
-
-const BookList = (books: allBooks) => { 
+const BookList = (books: BookListInterface) => { 
   return books.items?.length ? (
     <div className="book-list-container">
       {books.items.map((book: BookInterface) => (
